@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782543606235",
+    "project_id": "policyapp-7b332",
+    "storage_bucket": "policyapp-7b332.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782543606235:android:0df7818e7ae6def08c57fe",
+        "android_client_info": {
+          "package_name": "com.policybossproelite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAexRmjsWHMFJxE3s16ud1vZ8JivyUXWV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
