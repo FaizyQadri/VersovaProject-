@@ -4,7 +4,7 @@ import {apis} from '../apis/apis';
 
 const AuthServices = {
   getTitile: function (source: CancelTokenSource) {
-    return apiRequest(source).post(apis.title);
+    return apiRequest(source).get(apis.title);
   },
 };
 

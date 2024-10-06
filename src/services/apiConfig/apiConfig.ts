@@ -1,4 +1,4 @@
-const API_URL = 'https://jsonplaceholder.typicode.com/';
+const API_URL = 'https://jsonplaceholder.typicode.com';
 const success_code = 'success';
 const failure_code = 'failure';
 

@@ -16,7 +16,7 @@ const TestDemo: React.FC = () => {
   const [index, setIndex] = useState<number>(0);
   const [childIndex, setChildIndex] = useState<number>(0);
 
-  const {} = useTestDemo();
+  const {loading, title} = useTestDemo();
 
   const tabs: Tab[] = [
     {
@@ -70,12 +70,14 @@ const TestDemo: React.FC = () => {
     index: number;
   }) => (
     <TouchableOpacity
-      style={[styles.tab, index === parentIndex ? styles.selectedTab : null]}
+      style={styles.tabWrapper}
       onPress={() => onTabChange(parentIndex)}>
-      <Text
-        style={[styles.tabText, index === parentIndex && styles.slectedText]}>
-        {item.title}
-      </Text>
+      <View style={[styles.tab, index === parentIndex && styles.selectedTab]}>
+        <Text
+          style={[styles.tabText, index === parentIndex && styles.slectedText]}>
+          {item.title}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -107,6 +109,195 @@ const TestDemo: React.FC = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <View
+        style={{
+          marginHorizontal: 20,
+          backgroundColor: '#fff',
+          borderRadius: 8,
+          marginBottom: 20,
+          marginTop: 10,
+          // padding: 20,
+        }}>
+        <View style={{padding: 10, paddingHorizontal: 20}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 5,
+            }}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.slectedText,
+                {
+                  flex: 1,
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                },
+              ]}>
+              {title}
+            </Text>
+            <Text
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  textAlign: 'right',
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                },
+              ]}>
+              {'Training'}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.slectedText,
+                {
+                  flex: 1,
+                  fontSize: 15,
+                },
+              ]}>
+              {'test + 1'}
+            </Text>
+            <Text
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  textAlign: 'right',
+                  color: 'red',
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                },
+              ]}>
+              {'Lonavala'}
+            </Text>
+          </View>
+        </View>
+        <View
+          style={{
+            height: 5,
+            // borderWidth: 1,
+            // justifyContent: 'center',
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              width: 20,
+              height: 20,
+              borderRadius: 10,
+              backgroundColor: '#063710',
+              marginLeft: -10,
+            }}
+          />
+          <View
+            style={{
+              height: 1,
+              backgroundColor: 'darkgrey',
+              width: '100%',
+              flex: 1,
+            }}
+          />
+          <View
+            style={{
+              width: 20,
+              height: 20,
+              borderRadius: 10,
+              backgroundColor: '#063710',
+              marginRight: -10,
+            }}
+          />
+        </View>
+        <View style={{paddingVertical: 10, paddingHorizontal: 20}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 5,
+            }}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  fontSize: 15,
+                  // fontWeight: 'bold',
+                },
+              ]}>
+              {'Tue'}
+            </Text>
+            <Text
+              style={{
+                flex: 1,
+                textAlign: 'center',
+                textAlignVertical: 'bottom',
+                bottom: -10,
+              }}>
+              {'3 Days'}
+            </Text>
+            <Text
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  textAlign: 'center',
+                  fontSize: 15,
+                  // fontWeight: 'bold',
+                },
+              ]}>
+              {'Thu'}
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                },
+              ]}>
+              {'1st Oct'}
+            </Text>
+            <View
+              style={{
+                height: 1,
+                width: '100%',
+                backgroundColor: 'black',
+                flex: 0.5,
+                marginHorizontal: 20,
+              }}
+            />
+            <Text
+              style={[
+                styles.slectedText,
+                {
+                  flex: 0.3,
+                  textAlign: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                },
+              ]}>
+              {'3rs Oct'}
+            </Text>
+          </View>
+        </View>
+      </View>
       <View style={styles.tabContainer}>
         <FlatList
           data={tabs}
@@ -146,18 +337,26 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingBottom: 20,
   },
-  tab: {
+  tabWrapper: {
     borderWidth: 1,
-    borderColor: '#ddd',
     borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 2.5,
+    paddingVertical: 2.5,
+    borderColor: '#ddd',
+  },
+  tab: {
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   selectedTab: {
     backgroundColor: '#fff',
-    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+
+    // marginHorizontal:10000: 4,
+    // padding: 5,
   },
   tabText: {
     fontSize: 16,
@@ -165,7 +364,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   slectedText: {
-    color: 'black',
+    color: '#063710',
   },
   childtabText: {
     fontSize: 16,
